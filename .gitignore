@@ -19,3 +19,9 @@ __pycache__/
 .DS_Store
 
 # (You can push .env.template safely, so it's not included here)
+
+# Copias de seguridad y archivos temporales
+main_backup.py
+*.log
+*.sqlite3
+*.db
