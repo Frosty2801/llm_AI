@@ -22,6 +22,25 @@ app = FastAPI(title="LangChain Chat Assistant", version="1.0.0")
 conversations: Dict[str, Dict[str, Any]] = {}
 
 
+@app.get("/")
+async def root():
+    """Root endpoint with API information."""
+    return {
+        "message": "LangChain Chat Assistant API",
+        "version": "1.0.0",
+        "docs": "/docs",
+        "health": "/health",
+        "endpoints": {
+            "chat": "POST /chat",
+            "explain": "POST /explain",
+            "tutor": "POST /tutor",
+            "study": "POST /study",
+            "documents": "GET /documents",
+            "health": "GET /health"
+        }
+    }
+
+
 class ChatRequest(BaseModel):
     message: str
     conversation_id: Optional[str] = None

@@ -90,6 +90,7 @@ The API provides REST endpoints for all chat functionality:
 
 ### Endpoints
 
+- `GET /` - API information and available endpoints
 - `GET /health` - Health check
 - `POST /chat` - General chat with tool support
 - `POST /explain` - Structured topic explanations

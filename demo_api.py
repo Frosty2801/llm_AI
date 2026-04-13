@@ -12,8 +12,14 @@ BASE_URL = "http://localhost:8000"
 def demo_api_usage():
     """Demonstrate API functionality with example requests."""
 
-    print("🚀 LangChain Chat Assistant API Demo")
-    print("=" * 50)
+    # Root endpoint
+    print("\n0. API Information (Root Endpoint)")
+    try:
+        response = requests.get(f"{BASE_URL}/")
+        print(f"Status: {response.status_code}")
+        print(f"API Info: {response.json()}")
+    except Exception as e:
+        print(f"Error: {e}")
 
     # Health check
     print("\n1. Health Check")

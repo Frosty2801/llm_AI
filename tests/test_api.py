@@ -11,6 +11,16 @@ client = TestClient(app)
 class TestAPIEndpoints:
     """Test API endpoints."""
 
+    def test_root_endpoint(self):
+        """Test root endpoint provides API information."""
+        response = client.get("/")
+        assert response.status_code == 200
+        data = response.json()
+        assert "message" in data
+        assert "version" in data
+        assert "endpoints" in data
+        assert data["message"] == "LangChain Chat Assistant API"
+
     def test_health_check(self):
         """Test health check endpoint."""
         response = client.get("/health")
