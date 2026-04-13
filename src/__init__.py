@@ -1,1 +1,2 @@
-# this file is empty, but it indicates that the "src" folder is a module
+# This file makes the 'src' directory a Python package.
+# It is intentionally empty but required for module imports.

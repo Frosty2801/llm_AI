@@ -1,17 +1,21 @@
-# Usa una imagen oficial de Python ligera
+# Use official lightweight Python image
 FROM python:3.11-slim
 
-# Establece el directorio de trabajo dentro del contenedor
+# Set working directory
 WORKDIR /app
 
-# Copia el archivo de dependencias (ahora ubicado en la subcarpeta docker)
+# Copy requirements file
 COPY docker/requirements.txt .
 
-# Instala las dependencias de Python
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia el resto del código del proyecto al contenedor
+# Copy project code
 COPY . .
 
-# Comando por defecto para ejecutar el script
-CMD ["python", "-m", "src.main"]
+# Expose port for API
+EXPOSE 8000
+
+# Default command to run the API
+CMD ["python", "-m", "src.run_api"]
+
